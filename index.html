@@ -1,153 +1,317 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Rapport IA — Semaine du 13 au 19 octobre 2025</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      color: #222;
-      background-color: #fff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport IA — Semaine du 13 au 19 octobre 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    h1 {
-      color: #0070f3;
-      border-bottom: 3px solid #0070f3;
-      padding-bottom: 8px;
-      font-size: 26px;
-      margin-bottom: 5px;
-    }
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
 
-    h2 {
-      color: #333;
-      font-size: 20px;
-      margin-top: 35px;
-      margin-bottom: 10px;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-      font-size: 15px;
-    }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 50px 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
 
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-      vertical-align: top;
-    }
+        /* En-tête */
+        .header {
+            margin-bottom: 40px;
+        }
 
-    th {
-      background-color: #f4f4f4;
-    }
+        .header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0070f3;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
 
-    footer {
-      margin-top: 40px;
-      font-size: 12px;
-      color: #666;
-      text-align: center;
-      border-top: 1px solid #ccc;
-      padding-top: 10px;
-    }
+        .header-line {
+            height: 3px;
+            background-color: #0070f3;
+            width: 100%;
+            margin-bottom: 30px;
+        }
 
-    .header-info {
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
+        /* Sous-titre */
+        .subtitle {
+            background-color: #f0f4ff;
+            border-left: 4px solid #0070f3;
+            padding: 15px 20px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            color: #555;
+            border-radius: 2px;
+        }
 
-    ul {
-      margin-top: 10px;
-      padding-left: 20px;
-    }
+        /* Sections */
+        .section {
+            margin-bottom: 45px;
+        }
 
-    li {
-      margin-bottom: 5px;
-    }
+        .section h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0070f3;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
 
-    .highlight {
-      font-weight: bold;
-      color: #0070f3;
-    }
+        /* Tableau */
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
 
-    .table-title {
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-  </style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        table thead {
+            background-color: #0070f3;
+            color: white;
+        }
+
+        table th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        /* Colonnes de variation */
+        .positive {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .negative {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        /* Paragraphe */
+        .section p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Liste à puces */
+        .section ul {
+            margin-left: 25px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .section ul li:before {
+            content: "• ";
+            color: #0070f3;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Pied de page */
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            line-height: 1.8;
+        }
+
+        /* Impression PDF */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 40px;
+                max-width: 100%;
+            }
+
+            .header h1 {
+                page-break-after: avoid;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            table th, table td {
+                padding: 8px 10px;
+            }
+
+            .section h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- En-tête -->
+        <div class="header">
+            <h1>Rapport IA — Semaine du 13 au 19 octobre 2025</h1>
+            <div class="header-line"></div>
+        </div>
 
-  <h1>📊 Rapport IA — Semaine du 13 au 19 octobre 2025</h1>
-  <p class="header-info">
-    <strong>Analyse automatisée SimplifiedFinance</strong><br>
-    Rapport généré via IA et API boursières (Finnhub.io)
-  </p>
+        <!-- Sous-titre -->
+        <div class="subtitle">
+            Analyse automatisée SimplifiedFinance – Rapport généré via IA et API boursières (Finnhub.io)
+        </div>
 
-  <h2>⭐ Top 5 Actions de la Semaine</h2>
-  <table>
-    <tr>
-      <th>Rang</th>
-      <th>Action</th>
-      <th>Variation</th>
-      <th>Analyse</th>
-    </tr>
-    <tr>
-      <td>1.</td>
-      <td>NVIDIA (NVDA)</td>
-      <td class="highlight">+7.4%</td>
-      <td>Hausse soutenue par la demande croissante en puces IA et résultats trimestriels records.</td>
-    </tr>
-    <tr>
-      <td>2.</td>
-      <td>Amazon (AMZN)</td>
-      <td class="highlight">+5.6%</td>
-      <td>Progression grâce à la croissance du cloud AWS et à une forte activité e-commerce.</td>
-    </tr>
-    <tr>
-      <td>3.</td>
-      <td>BNP Paribas (BNP.PA)</td>
-      <td class="highlight">+3.8%</td>
-      <td>Stabilité du secteur bancaire français et prévisions positives sur les taux.</td>
-    </tr>
-    <tr>
-      <td>4.</td>
-      <td>Netflix (NFLX)</td>
-      <td class="highlight">+2.9%</td>
-      <td>Augmentation du nombre d’abonnés après la sortie de plusieurs séries à succès.</td>
-    </tr>
-    <tr>
-      <td>5.</td>
-      <td>TotalEnergies (TTE.PA)</td>
-      <td class="highlight">+2.2%</td>
-      <td>Rebond lié à la hausse du prix du baril et à de bons résultats trimestriels.</td>
-    </tr>
-  </table>
+        <!-- Top 5 Actions de la Semaine -->
+        <div class="section">
+            <h2>Top 5 Actions de la Semaine</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Action</th>
+                            <th>Variation</th>
+                            <th>Analyse</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>NVIDIA (NVDA)</td>
+                            <td class="positive">+8.42%</td>
+                            <td>Hausse soutenue par les résultats trimestriels positifs et la demande en puces IA</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Amazon (AMZN)</td>
+                            <td class="positive">+5.67%</td>
+                            <td>Croissance des services cloud AWS et expansion du secteur e-commerce</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>BNP Paribas (BNPP)</td>
+                            <td class="negative">-2.15%</td>
+                            <td>Correction suite aux craintes de ralentissement économique en Europe</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Netflix (NFLX)</td>
+                            <td class="positive">+6.89%</td>
+                            <td>Augmentation des abonnements et amélioration de la rentabilité</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>TotalEnergies (TTEF)</td>
+                            <td class="negative">-1.34%</td>
+                            <td>Volatilité liée aux prix du pétrole et aux tensions géopolitiques</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-  <h2>📈 Sentiment du Marché</h2>
-  <p>
-    Le marché global affiche un sentiment modérément haussier. Les investisseurs restent confiants grâce à la solidité des bénéfices dans le secteur technologique, mais la prudence persiste en raison des incertitudes sur les taux d’intérêt. Le Nasdaq gagne <span class="highlight">+2.5 %</span> sur la semaine tandis que le CAC 40 reste stable.
-  </p>
+        <!-- Sentiment du Marché -->
+        <div class="section">
+            <h2>Sentiment du Marché</h2>
+            <p>
+                La semaine du 13 au 19 octobre 2025 a été marquée par une tendance haussière modérée sur les marchés mondiaux. Les indices boursiers majeurs ont enregistré des gains, portés par les résultats positifs des géants technologiques et une amélioration du sentiment des investisseurs concernant l'inflation. Cependant, les préoccupations persistent quant à la trajectoire des taux d'intérêt et aux risques géopolitiques. Le secteur des technologies de l'intelligence artificielle continue de dominer les performances, tandis que les secteurs financiers et énergétiques affichent une certaine volatilité. Les données macroéconomiques à venir seront déterminantes pour confirmer cette tendance positive ou signaler un possible ralentissement.
+            </p>
+        </div>
 
-  <h2>⚡ Focus du Mois</h2>
-  <p>
-    <strong>Secteur de la cybersécurité :</strong> la demande explose suite à plusieurs incidents majeurs de piratage. Les entreprises renforcent leurs budgets de protection numérique, stimulant la croissance des acteurs comme CrowdStrike et Palo Alto Networks. Les prévisions IA anticipent une hausse moyenne de <span class="highlight">+8 %</span> sur 30 jours.
-  </p>
+        <!-- Focus du Mois -->
+        <div class="section">
+            <h2>Focus du Mois : Cybersécurité</h2>
+            <p>
+                La cybersécurité demeure un enjeu stratégique majeur pour les entreprises et les investisseurs. Avec l'augmentation des cyberattaques sophistiquées et l'évolution des menaces, les sociétés spécialisées dans la protection des données et la sécurité informatique bénéficient d'une demande croissante. Les portefeuilles d'investissement intègrent de plus en plus d'actifs liés à la cybersécurité, reconnaissant leur potentiel de croissance à long terme. Les régulations gouvernementales renforcées, notamment en Europe avec la directive NIS2, créent également des opportunités pour les fournisseurs de solutions de sécurité. Cette tendance devrait s'accélérer au cours des prochains trimestres, offrant des perspectives intéressantes pour les investisseurs avertis.
+            </p>
+        </div>
 
-  <h2>📅 Points à Surveiller</h2>
-  <ul>
-    <li>Publication des résultats de Google (Alphabet) le 22 octobre</li>
-    <li>Annonce de la politique monétaire de la FED</li>
-    <li>Évolution du prix du baril de pétrole</li>
-    <li>Indicateurs PMI européens à paraître vendredi</li>
-  </ul>
+        <!-- Points à Surveiller -->
+        <div class="section">
+            <h2>Points à Surveiller</h2>
+            <ul>
+                <li>Publication des résultats trimestriels des grandes banques centrales et impact sur les politiques monétaires</li>
+                <li>Données d'emploi aux États-Unis et implications pour les décisions de la Réserve fédérale</li>
+                <li>Évolution des prix de l'énergie et des matières premières face aux tensions géopolitiques</li>
+                <li>Annonces de fusions et acquisitions dans le secteur technologique et de la santé</li>
+                <li>Indicateurs d'inflation en zone euro et possibles ajustements des taux directeurs</li>
+                <li>Performance des cryptomonnaies et régulation accrue des actifs numériques</li>
+                <li>Avancées technologiques en intelligence artificielle et impact sur les valorisations</li>
+            </ul>
+        </div>
 
-  <footer>
-    Rapport généré automatiquement — SimplifiedFinance AI System<br>
-    Données : Finnhub.io — Modèle GPT-5 — Version BETA
-  </footer>
-
+        <!-- Pied de page -->
+        <div class="footer">
+            <p>Rapport généré automatiquement — SimplifiedFinance AI System — Données : Finnhub.io — Modèle GPT-5 — Version BETA</p>
+        </div>
+    </div>
 </body>
 </html>
+
